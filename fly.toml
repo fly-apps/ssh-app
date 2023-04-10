@@ -1,0 +1,14 @@
+kill_signal = "SIGINT"
+kill_timeout = 5
+primary_region = "ord"
+
+[[services]]
+http_checks = []
+internal_port = 22
+processes = ["app"]
+protocol = "tcp"
+script_checks = []
+
+[[services.ports]]
+handlers = []
+port = 1122
