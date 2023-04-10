@@ -7,6 +7,7 @@ RUN sudo adduser ${USERNAME} --disabled-password
 RUN mkdir -p /home/${USERNAME}/.ssh
 RUN touch /home/${USERNAME}/.ssh/authorized_keys
 
+RUN echo "HostKeyAlgorithms +ssh-rsa" >> /etc/ssh/sshd_config
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/sshd_config
 RUN service ssh start
 EXPOSE 22

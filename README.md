@@ -27,3 +27,28 @@ Let's say the DB is "myflydb."
 7. Point your BI tool at this app's domain: `<mysshapp>.fly.dev`, port 1122
 6. Then your connection string on the BI Tool is `myflydb.internal`
    - For postgres, the port would be `5433`, or `5432`
+
+## Notes
+
+Notice in `fly.toml` that this project uses the non-standard port `1122`.
+This can be changed in `fly.toml`.
+Whatever value you use must be used when configuring your tunnel on your BI provider.
+
+Retool's documentation: https://docs.retool.com/docs/enabling-ssh-tunnels
+Looker's documentation: https://cloud.google.com/looker/docs/using-an-ssh-tunnel
+
+## Recommendation
+
+Each of the BI services have security recommendations for SSH tunneling.
+These are not required to make the SSH Tunnel work for your needs,
+though recommend following those recommendations from the providers to be secure.
+Below are some examples.
+
+### Retool
+
+* Allowlist incoming IPs: https://docs.retool.com/docs/allow-retools-cloud-ip-addresses
+
+### Looker
+
+* Allowlist incoming IPs: https://cloud.google.com/looker/docs/using-an-ssh-tunnel#step_2_create_ip_allowlist
+* Limit tunnel access where possible: https://cloud.google.com/looker/docs/using-an-ssh-tunnel#tunnel_security_notes
